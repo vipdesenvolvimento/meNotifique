@@ -16,6 +16,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
 @Slf4j
 @Component
 public class Interceptor implements HandlerInterceptor {
@@ -25,7 +27,7 @@ public class Interceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-
+        System.out.println("Gerado consulta");
         if (request.getHeader("apikey") == null){
             response.setContentType("application/json;charset=UTF-8");
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
