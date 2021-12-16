@@ -1,7 +1,6 @@
 package com.dev.vip.menotifique.controller;
 
 
-import com.dev.vip.menotifique.model.UserWithGroup;
 import com.dev.vip.menotifique.model.Users;
 import com.dev.vip.menotifique.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
