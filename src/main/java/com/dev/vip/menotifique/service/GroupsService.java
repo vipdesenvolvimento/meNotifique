@@ -1,9 +1,7 @@
 package com.dev.vip.menotifique.service;
 
-
-import com.dev.vip.menotifique.model.Users;
-import com.dev.vip.menotifique.repository.UsersRepository;
-
+import com.dev.vip.menotifique.model.Groups;
+import com.dev.vip.menotifique.repository.GroupsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,16 +10,12 @@ import java.util.List;
 
 @Transactional
 @Service
-public class UsersService {
-
+public class GroupsService {
     @Autowired
-    private UsersRepository usersRepository;
+    private GroupsRepository groupsRepository;
 
 
-    public List<Users> listAll(){
-        return usersRepository.findAll();
+    public List<Groups> listAll(){
+        return groupsRepository.findAll();
     }
-
-
-
 }

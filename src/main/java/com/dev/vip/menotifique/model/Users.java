@@ -3,51 +3,52 @@ package com.dev.vip.menotifique.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
-@Entity
+import static javax.persistence.CascadeType.ALL;
+import static javax.persistence.FetchType.EAGER;
+
+@Setter
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name="users")
-public class Users {
+@Entity
+public class Users implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonIgnore
     private int id;
 
+    private String first_name;
 
-    private String passwd;
+    private String last_name;
+
     private String username;
 
+    @JsonIgnore
+    private String passwd;
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
+    private int is_admin;
 
 
-
-    public String getPasswd() {
-        return passwd;
-    }
-
-    public void setPasswd(String passwd) {
-        this.passwd = passwd;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
+    @ManyToMany(fetch = EAGER, cascade = ALL)
+    @JoinTable(
+            name = "users_has_groups",
+            joinColumns = @JoinColumn(name = "users_id", updatable = false, nullable = false),
+            inverseJoinColumns = @JoinColumn(name = "groups_id", updatable = false, nullable = false)
+    )
+    private List<Groups> grupos = new ArrayList<>();
 
 
 }
