@@ -16,4 +16,9 @@ public class HomeController {
     public String welcome(){
         return "API menotifique v"+version;
     }
+
+    @GetMapping("")
+    public String welcome2(){
+        return "API menotifique v"+version;
+    }
 }

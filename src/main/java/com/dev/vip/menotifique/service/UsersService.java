@@ -1,6 +1,7 @@
 package com.dev.vip.menotifique.service;
 
 
+import com.dev.vip.menotifique.model.Message;
 import com.dev.vip.menotifique.model.Users;
 import com.dev.vip.menotifique.repository.UsersRepository;
 
@@ -23,5 +24,7 @@ public class UsersService {
     }
 
 
-
+    public void addUser(Users users){
+        usersRepository.save(users);
+    }
 }
