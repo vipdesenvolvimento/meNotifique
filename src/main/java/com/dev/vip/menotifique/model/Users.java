@@ -9,6 +9,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -41,10 +42,15 @@ public class Users implements Serializable{
 
     private int is_admin;
 
+    private LocalDateTime updated_at;
+
+    private LocalDateTime created_at;
+
+    private int company_id;
 
     @ManyToMany(fetch = EAGER, cascade = ALL)
     @JoinTable(
-            name = "users_has_groups",
+            name = "users_has_groups1",
             joinColumns = @JoinColumn(name = "users_id", updatable = false, nullable = false),
             inverseJoinColumns = @JoinColumn(name = "groups_id", updatable = false, nullable = false)
     )

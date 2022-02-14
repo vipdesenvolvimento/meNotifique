@@ -1,35 +1,26 @@
 package com.dev.vip.menotifique.model;
 
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import javax.persistence.*;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
+import javax.persistence.*;
+
+@Setter
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
+@Table(name="users_has_groups1")
 @Entity
-@Table(name = "groups")
-public class Groups {
-
+public class UsersHasGroups {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private String name;
+    private int users_id;
 
-    private int is_active;
-
-    private LocalDateTime created_at;
-
-    private LocalDateTime updated_at;
-
-    private int company_id;
+    private int groups_id;
 }

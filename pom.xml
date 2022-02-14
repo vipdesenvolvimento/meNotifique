@@ -67,7 +67,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
-		<finalName>${project.artifactId}##${project.version}</finalName>
+		<finalName>${project.artifactId}${project.version}</finalName>
 	</build>
 	<packaging>war</packaging>
 </project>
